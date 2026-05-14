@@ -7,11 +7,7 @@ A generic SwiftUI before/after comparison slider that accepts any two views and 
 ## Preview
 
 <p align="center">
-  <img src="Screenshots/main.png" width="30%" alt="Main view" />
-  &nbsp;&nbsp;
-  <img src="Screenshots/themes.png" width="30%" alt="Theme presets" />
-  &nbsp;&nbsp;
-  <img src="Screenshots/settings.png" width="30%" alt="Configuration sheet" />
+  <img src="https://github.com/user-attachments/assets/2294358d-f085-4a67-80f1-6ca866f18321" width="30%" alt="Main view" />
 </p>
 
 ---
