@@ -1,41 +1,62 @@
-//
-//  Comparison_SliderUITests.swift
-//  Comparison SliderUITests
-//
-//  Created by Rami Ounifi on 14.05.26.
-//
-
 import XCTest
 
 final class Comparison_SliderUITests: XCTestCase {
 
+    private var app: XCUIApplication!
+
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        app = XCUIApplication()
+        app.launch()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        app = nil
     }
 
-    @MainActor
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
+    // MARK: - Launch
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testNavigationTitleIsVisible() {
+        XCTAssertTrue(app.navigationBars["Comparison Slider"].exists)
     }
 
-    @MainActor
-    func testLaunchPerformance() throws {
-        // This measures how long it takes to launch your application.
-        measure(metrics: [XCTApplicationLaunchMetric()]) {
-            XCUIApplication().launch()
-        }
+    // MARK: - Sheet flow
+
+    func testThemeButtonOpensConfigurationSheet() {
+        app.buttons["Theme"].tap()
+        XCTAssertTrue(app.navigationBars["Configuration"].waitForExistence(timeout: 2))
+    }
+
+    func testDoneButtonDismissesConfigurationSheet() {
+        app.buttons["Theme"].tap()
+        _ = app.navigationBars["Configuration"].waitForExistence(timeout: 2)
+        app.buttons["Done"].tap()
+        XCTAssertTrue(app.navigationBars["Comparison Slider"].waitForExistence(timeout: 2))
+    }
+
+    // MARK: - Toggle state
+
+    func testHandleToggleIsOnByDefault() {
+        app.buttons["Theme"].tap()
+        let toggle = app.switches["Handle"]
+        _ = toggle.waitForExistence(timeout: 2)
+        XCTAssertEqual(toggle.value as? String, "1")
+    }
+
+    func testTogglingHandleChangesItsState() {
+        app.buttons["Theme"].tap()
+        let toggle = app.switches["Handle"]
+        _ = toggle.waitForExistence(timeout: 2)
+        toggle.tap()
+        XCTAssertEqual(toggle.value as? String, "0")
+    }
+
+    // MARK: - Preset selection
+
+    func testSelectingOceanPresetShowsCheckmark() {
+        app.buttons["Theme"].tap()
+        _ = app.navigationBars["Configuration"].waitForExistence(timeout: 2)
+        app.staticTexts["Ocean"].tap()
+        XCTAssertTrue(app.images["checkmark"].exists)
     }
 }

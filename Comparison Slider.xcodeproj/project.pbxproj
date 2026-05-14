@@ -30,16 +30,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		EA7F16E02FB625EF0098A16A /* Example */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Example;
-			sourceTree = "<group>";
-		};
-		EA7F16E12FB625EF0098A16A /* Sources/ComparisonSlider */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Sources/ComparisonSlider";
-			sourceTree = "<group>";
-		};
 		EA7F16C62FB625EF0098A16A /* Comparison SliderTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Comparison SliderTests";
@@ -48,6 +38,16 @@
 		EA7F16D02FB625EF0098A16A /* Comparison SliderUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Comparison SliderUITests";
+			sourceTree = "<group>";
+		};
+		EA7F16E02FB625EF0098A16A /* Example */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Example;
+			sourceTree = "<group>";
+		};
+		EA7F16E12FB625EF0098A16A /* Sources/ComparisonSlider */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Sources/ComparisonSlider;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
